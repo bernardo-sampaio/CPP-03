@@ -6,7 +6,7 @@
 /*   By: bsampaio <bsampaio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 13:21:18 by bsampaio          #+#    #+#             */
-/*   Updated: 2026/08/03 07:43:03 by bsampaio         ###   ########.fr       */
+/*   Updated: 2026/08/03 08:04:07 by bsampaio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,21 @@ DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap()
     this->hitPoints = 100;
     this->attackDamage = 30;
     this->energyPoints = 50;
-    std::cout<<"DiamondTrap default construtor called.\n";
+    std::cout<<"DiamondTrap "<<this->name<<" default construtor called.\n";
 }
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
-    ClapTrap::name = name + "_clap_name";
     this->name = name;
     this->hitPoints = 100;
     this->attackDamage = 30;
     this->energyPoints = 50;
-    std::cout<<"DiamondTrap construtor called.\n";
+    std::cout<<"DiamondTrap "<<this->name<<" construtor called.\n";
 }
 DiamondTrap::DiamondTrap(const DiamondTrap& obj): ClapTrap(obj),
 ScavTrap(obj),FragTrap(obj), name(obj.name)
 {
-    std::cout<<"DiamondTrap copy construtor called.\n";
+    std::cout<<"DiamondTrap "<<this->name<<" copy construtor called.\n";
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& obj)
@@ -42,10 +41,9 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& obj)
     if (this != &obj)
     {
         this->ClapTrap::operator=(obj);
-        ClapTrap::name = obj.ClapTrap::name;
         this->name = obj.name;
     }
-    std::cout<<"DiamondTrap assignment operator called.\n";
+    std::cout<<"DiamondTrap "<<this->name<<" assignment operator called.\n";
     return (*this);
 }
 
