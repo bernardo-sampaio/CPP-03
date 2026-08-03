@@ -6,15 +6,16 @@
 /*   By: bsampaio <bsampaio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 13:21:18 by bsampaio          #+#    #+#             */
-/*   Updated: 2026/07/31 15:09:13 by bsampaio         ###   ########.fr       */
+/*   Updated: 2026/08/03 07:43:03 by bsampaio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(): ClapTrap("Default_clap_name"), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap()
 {
     this->name = "Default";
+    ClapTrap::name = "Default_clap_name";
     this->hitPoints = 100;
     this->attackDamage = 30;
     this->energyPoints = 50;
